@@ -35,3 +35,5 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 [FCOS(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | 85.7 |  86.4	| 81.2	| 88.3 | 87.6 |
 [RetinaNet(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | 87.1 |  86.9	| 71.3	| 91.7 | 92.8 |  
 [YOLOv5(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | **89.6** |  **89.6**	| **82.2**	| **92.9** | **93.0** |  
+
+### Usage
