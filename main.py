@@ -52,7 +52,7 @@ if __name__ == '__main__':
         runssd('imgpruebas', path)
 
     if args.model == 'retina':
-        path = "./runs/retina
+        path = "./runs/retina"
         path = checkdir(path)
 
     if args.model == 'fcos':
