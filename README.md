@@ -49,3 +49,38 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 - PyTorch 1.0+
 - TorchVision
 - OpenCV
+
+## Usage example
+We have prepared an example of the detection and recognition of the maskedfaces with our pre-entrenated models.
+
+### Preparation
+- Clone this repository
+
+```
+git clone https://github.com/GibranBenitez/TFM_dataset.git
+```
+```
+cd TFM_dataset && mkdir checkpoints
+```
+- Store all pretrained models in `./TFM_dataset/checkpoints`
+- Choose the model and source directory.
+- **Yolov5:**
+```
+python main.py --model yolov5 --source eg
+```
+- **SSD:**
+```
+python main.py --model ssd --source eg
+```
+- **FCOS:**
+```
+python main.py --model fcos --source eg
+```
+- **RetinaNet:**
+```
+python main.py --model retina --source eg
+```
+- To add your own images you must create the directory and choose it in the source:
+```
+python main.py --model "choose model" --source "your directory name"
+```
