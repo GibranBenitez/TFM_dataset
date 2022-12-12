@@ -1,6 +1,6 @@
 # TFM_dataset 
 
-__TFM a Dataset for Detection and Recognition of Masked Faces in the Wild__<br>
+[__TFM a Dataset for Detection and Recognition of Masked Faces in the Wild__](https://dl.acm.org/doi/10.1145/3551626.3564957)<br>
 [Gibran Benitez-Garcia](https://gibranbenitez.github.io), Miguel Jimenez-Martinez, Jesus Olivares-Mercado and Hiroki Takahashi<br>
 ___Accepted at [ACM Multimedia Asia 2022](https://www.mmasia2022.org)___
 
@@ -27,13 +27,25 @@ We divide the entire data set into training (with pictures that only include up 
  Valid | 1,869 | 1,915 | 7,041 | 3,514 | 399 | 14,738
  Test | 2,361 | 6,604 | 9,333 | 6,846 | 802  | 25,946
  
+ ### Download TFM dataset from:
+  - [MM_train1.zip (5.4 GB)](https://drive.google.com/file/d/1XFv41kuujoG3uKfeZ3CsIM7ZCjJ0QXO0/view?usp=sharing)
+  - [MM_train2.zip (5.03GB)](https://drive.google.com/file/d/1XZeNA9M1b-6bbIzd3XXmsQ9VF9ziGtMT/view?usp=sharing)
+  - [MM_valid.zip (1GB)](https://drive.google.com/file/d/1X7tMmI_zXT89UxUdsn6xhIvmSo7j2edU/view?usp=sharing)
+  - [MM_test.zip (1.26 GB)](https://drive.google.com/file/d/1XBB760jFFbhlYFILXXER-JgGaBDKcSMQ/view?usp=share_link)
  ### Benchmark evaluation
+ In general, all methods present the expected trend when evaluating faces of specific dimensions. Medium (mAP<sub>𝑀</sub>) and large (mAP<sub>𝐿</sub>) faces achieved higher performance than the general mAP, while small (mAP<sub>𝑆</sub>) shows a significant accuracy drop.
+ <br>You can download the pre-trained models from the table below:
  
 Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub> 
 :-----:| :-------: | :--: | :-------------: | :------------: | :-------------: 
-[SSD(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | 76.6 |  74.9	| 55.8	| 79.8 | 85.1 |
-[FCOS(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | 85.7 |  86.4	| 81.2	| 88.3 | 87.6 |
-[RetinaNet(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | 87.1 |  86.9	| 71.3	| 91.7 | 92.8 |  
-[YOLOv5(EDITAR)](https://drive.google.com/file/d/1vMCYpoLFavXsyp48hdadvCR5R-4gP-n_/view?usp=share_link) | **89.6** |  **89.6**	| **82.2**	| **92.9** | **93.0** |  
+[SSD](https://drive.google.com/file/d/1Cd2YxcaCrxZWUcyWM2GAjblvu5P7X886/view?usp=share_link) | 76.6 |  74.9	| 55.8	| 79.8 | 85.1 |
+[FCOS](https://drive.google.com/file/d/1MnMsGaSVfs6WEfAix_mOe6KYHpPOWJqM/view?usp=share_link) | 85.7 |  86.4	| 81.2	| 88.3 | 87.6 |
+[RetinaNet](https://drive.google.com/file/d/1DJtsLel7qrkKzpKmf8O4Td2HN9dBSMZw/view?usp=share_link) | 87.1 |  86.9	| 71.3	| 91.7 | 92.8 |  
+[YOLOv5](https://drive.google.com/file/d/1uAZioqd4Pvurl7eEiDawidve8FU0dFXA/view?usp=share_link) | **89.6** |  **89.6**	| **82.2**	| **92.9** | **93.0** |  
 
-### Usage
+### Requeriments
+
+- Python 3.8+
+- PyTorch 1.0+
+- TorchVision
+- OpenCV
