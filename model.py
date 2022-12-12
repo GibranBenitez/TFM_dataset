@@ -1,5 +1,5 @@
 from torch import nn
-from SSD_artesanal.utils import *
+from SSD.utils import *
 import torch.nn.functional as F
 from math import sqrt
 from itertools import product as product

@@ -2,61 +2,80 @@ import argparse
 from yolov5.detect import run
 import os
 from os import path as osPath
-from SSD_artesanal.detect import runssd
-
-checkpoints = {'yolov5':'checkpoints\yolo.pt','retina':'checkpoints\Checkpoint_FT_MM_Dataset_epoca_25_retina.pth.rar',
-            'fcos':'checkpoints\Checkpoint_FT_MM_Dataset_epoca_30_fcos.pth.rar','ssd':'checkpoints\SSD_MMask_E_28.pth'}
+from SSD.detect import runssd
+from FCOS_torch.detect import detect
+checkpoints = {'yolov5':'checkpoints\yolo.pt','retina':'checkpoints\weight_retina.pth.rar',
+            'fcos':'checkpoints\weight_fcos.pth.rar','ssd':'checkpoints\ssd.pth'}
  
 
 def checkdir(filePath):
-    """ Pasar como parametros: directorio de archivo y nombre de archivo completo """
+
 
     if os.path.exists(filePath):
         numb = 1
         while True:
-            # Separa el nombre del archivo de su extensión colocando el numero en el medio (al final del nombre)
+            
             newName = "{0}".format(filePath+'(' + str(numb) +')')
 
-            # Si existe un archivo con ese nombre incrementa el numero
+            
             if os.path.exists(newName):
                 numb += 1
             else:
-                # Devuelve el nombre modificado si el archivo existe
+                
                 return newName
-    # Devuelve el nombre original si el archivo no existe
+    
     return filePath
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--model', type=str, default='yolov5',required=True)
-    parser.add_argument('--source', type=str, default='./data/*.jpg',required=True)
-    parser.add_argument('--to', type=str, default='./runs/',required=True)
+    parser.add_argument('--source', type=str, default='./data',required=True)
     args = parser.parse_args()
 
     if not os.path.exists('./runs'):
         os.makedirs('./runs', exist_ok=True)
 
-    if args.model == 'yolov5':
-        path = "./runs/yolov5"
-        path = checkdir(path)
-        print (path)  
-        run(weights = checkpoints['yolov5'],source='imgpruebas',project=path,name='./')
+    source = args.source
+    
 
-    if args.model == 'ssd':
-        path = "./runs/ssd"
-        path = checkdir(path)
-        if not os.path.exists(path):
-            os.makedirs(path, exist_ok=True)
-        print(path)
-        runssd('imgpruebas', path)
+    if not os.path.exists(source):
+        print("Error Dir not found")
+        exit()
 
-    if args.model == 'retina':
-        path = "./runs/retina"
-        path = checkdir(path)
+    else:
 
-    if args.model == 'fcos':
-        path = "./runs/fcos"
-        path = checkdir(path)
+        if args.model == 'yolov5':
+            path = "./runs/yolov5"
+            path = checkdir(path)
+            #print (path)  
+            run(weights = checkpoints['yolov5'],source=args.source,project=path,name='./')
+
+        if args.model == 'ssd':
+            path = "./runs/ssd"
+            path = checkdir(path)
+            if not os.path.exists(path):
+                os.makedirs(path, exist_ok=True)
+            #print(path)
+            runssd(source,path)
+            print("\nResults saved to: ",path)
+
+        if args.model == 'retina':
+            path = "./runs/retina"
+            path = checkdir(path)
+            if not os.path.exists(path):
+                os.makedirs(path, exist_ok=True)
+        
+            detect(checkpoints['retina'],source, 0.5, path,'retina')
+            print("\nResults saved to: ",path)
+
+        if args.model == 'fcos':
+            path = "./runs/fcos"
+            path = checkdir(path)
+            if not os.path.exists(path):
+                os.makedirs(path, exist_ok=True)
+        
+            detect(checkpoints['fcos'],source, 0.5, path)
+            print("\nResults saved to: ",path)
         
 
