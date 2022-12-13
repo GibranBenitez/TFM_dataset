@@ -64,6 +64,7 @@ cd TFM_dataset && mkdir checkpoints
 ```
 - Store all pretrained models in `./TFM_dataset/checkpoints`
 - Choose the model and source directory.
+### Run
 - **Yolov5:**
 ```
 python main.py --model yolov5 --source eg
