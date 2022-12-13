@@ -49,3 +49,72 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 - PyTorch 1.0+
 - TorchVision
 - OpenCV
+
+## Usage example
+We have prepared an example of the detection and recognition of the maskedfaces with our pre-entrenated models.
+
+### Preparation
+- Clone this repository
+
+```
+git clone https://github.com/GibranBenitez/TFM_dataset.git
+```
+```
+cd TFM_dataset && mkdir checkpoints
+```
+- Store all pretrained models in `./TFM_dataset/checkpoints`
+- Choose the model and source directory.
+- **Yolov5:**
+```
+python main.py --model yolov5 --source eg
+```
+- **SSD:**
+```
+python main.py --model ssd --source eg
+```
+- **FCOS:**
+```
+python main.py --model fcos --source eg
+```
+- **RetinaNet:**
+```
+python main.py --model retina --source eg
+```
+- To add your own images you must create the directory in the root and choose it in the source:
+```
+python main.py --model "choose model" --source "your directory name"
+```
+
+## Citation
+If you find useful the TFM dataset for your research, please cite the paper:
+
+```bibtex
+@inproceedings{10.1145/3551626.3564957,
+author = {Benitez-Garcia, Gibran and Takahashi, Hiroki and Jimenez-Martinez, Miguel and Olivares-Mercado, Jesus},
+title = {TFM a Dataset for Detection and Recognition of Masked Faces in the Wild},
+year = {2022},
+isbn = {9781450394789},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3551626.3564957},
+doi = {10.1145/3551626.3564957},
+booktitle = {Proceedings of the 4th ACM International Conference on Multimedia in Asia},
+articleno = {1},
+numpages = {7},
+keywords = {datasets, face mask recognition, Twitter image mining, face mask detection},
+location = {Tokyo, Japan},
+series = {MMAsia '22}
+}
+```
+## Acknowledgement
+
+This project is inspired by many previous works, including:
+
+- Yolov5, Glenn Jocher et al. [[code](https://github.com/ultralytics/yolov5)].
+- [Real-Time
+Face Mask Detection Method Based on YOLOv3](https://doi.org/10.3390/electronics10070837), Xinbei Jiang et al, Electronics 2021.
+- [SSD: Single Shot MultiBox Detector](http://arxiv.org/abs/1512.02325), Wei Liu et al, ECCV 2016 [[code](https://github.com/weiliu89/caffe/tree/ssd)].
+- [FCOS: Fully Convolutional One-Stage Object Detection](https://arxiv.org/abs/1904.01355). Zhi Tian et al, CVPR 2019 [[code](https://github.com/tianzhi0549/FCOS)].
+- [Focal Loss for Dense Object Detection](https://arxiv.org/abs/1708.02002), Tsung-Yi Lin et al, CVPR.
+- [Detecting Masked Faces in the
+Wild with LLE-CNNs](https://ieeexplore.ieee.org/document/8099536), Shiming Ge, et al, CVPR 2017.      
