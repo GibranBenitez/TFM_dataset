@@ -83,6 +83,7 @@ python main.py --model retina --source eg
 - To add your own images you must create the directory in the root and choose it in the source:
 ```
 python main.py --model "choose model" --source "your directory name"
+<<<<<<< HEAD
 ```
 
 ## Citation
@@ -118,3 +119,6 @@ Face Mask Detection Method Based on YOLOv3](https://doi.org/10.3390/electronics1
 - [Focal Loss for Dense Object Detection](https://arxiv.org/abs/1708.02002), Tsung-Yi Lin et al, CVPR.
 - [Detecting Masked Faces in the
 Wild with LLE-CNNs](https://ieeexplore.ieee.org/document/8099536), Shiming Ge, et al, CVPR 2017.      
+=======
+```
+>>>>>>> 13f57abfc6cf560ef2198e6cb44aa5bc6bff1ec4
