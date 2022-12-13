@@ -1,4 +1,4 @@
-path: /Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/tfm
+path: ./../datasets/tfm
 
 train:
   - images/train
