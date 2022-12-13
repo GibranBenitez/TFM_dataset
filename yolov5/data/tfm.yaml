@@ -1,0 +1,15 @@
+path: ../datasets/tfm
+
+train:
+  - images/train
+test:
+  - images/test
+valid:
+  - images/valid
+
+names:
+  0: cloth
+  1: unmasked
+  2: respirator
+  3: surgical
+  4: valved
