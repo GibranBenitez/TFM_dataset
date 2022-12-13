@@ -83,7 +83,6 @@ python main.py --model retina --source eg
 - To add your own images you must create the directory in the root and choose it in the source:
 ```
 python main.py --model "choose model" --source "your directory name"
-<<<<<<< HEAD
 ```
 
 ## Citation
