@@ -121,4 +121,4 @@ Face Mask Detection Method Based on YOLOv3](https://doi.org/10.3390/electronics1
 Wild with LLE-CNNs](https://ieeexplore.ieee.org/document/8099536), Shiming Ge, et al, CVPR 2017.      
 =======
 ```
->>>>>>> 13f57abfc6cf560ef2198e6cb44aa5bc6bff1ec4
+
