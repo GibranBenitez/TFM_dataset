@@ -3,7 +3,7 @@ from yolov5.detect import run
 import os
 from os import path as osPath
 from SSD.detect import runssd
-from FCOS_torch.detect import detect
+from FCOS_RETINA.detect import detect
 checkpoints = {'yolov5':'checkpoints\yolo.pt','retina':'checkpoints\weight_retina.pth.rar',
             'fcos':'checkpoints\weight_fcos.pth.rar','ssd':'checkpoints\ssd.pth'}
  
