@@ -2,3 +2,8 @@
 *.pth
 *.pt
 *.jpg
+*.json
+datasets/
+__pycache__
+*.txt
+.DS_Store

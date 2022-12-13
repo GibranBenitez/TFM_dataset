@@ -3,6 +3,7 @@ import glob
 import json
 import os
 
+
 def xml_to_yolo_bbox(bbox, w, h):
     # xmin, ymin, xmax, ymax
     x_center = ((bbox[2] + bbox[0]) / 2) / w
@@ -25,11 +26,13 @@ def yolo_to_xml_bbox(bbox, w, h):
 
 if __name__ == '__main__':
 
-    folders_db = ['train', 'valid', 'test']
+    folders_db = ['valid', 'test']
     for folder in folders_db:
-        classes = ['cloth','none','respirator','surgical','valve']
-        input_dir = "/host/space0/gibran/dataset/MM_covid/{}/Annotations/".format(folder)
-        output_dir = "/host/space0/gibran/dataset/MM_covid/{}/annotations/".format(folder)
+        classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
+        input_dir = "/Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/{}/Annotations/".format(
+            folder)
+        output_dir = "/Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/tfm/{}/annotations/".format(
+            folder)
 
         # create the labels folder (output directory)
         if not os.path.exists(output_dir):
@@ -37,8 +40,9 @@ if __name__ == '__main__':
 
         # identify all the xml files in the annotations folder (input directory)
         files = glob.glob(os.path.join(input_dir, '*.xml'))
-        print("Generating txt annots for {} files in {} folder".format(len(files), folder))
-        # loop through each 
+        print("Generating txt annots for {} files in {} folder".format(
+            len(files), folder))
+        # loop through each
         for fil in files:
             basename = os.path.basename(fil)
             filename = os.path.splitext(basename)[0]

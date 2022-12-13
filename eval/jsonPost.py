@@ -2,17 +2,6 @@ import json
 import os
 
 
-def yolo_to_xml_bbox(bbox, w, h):
-    # x_center, y_center width heigth
-    w_half_len = (bbox[2] * w) / 2
-    h_half_len = (bbox[3] * h) / 2
-    xmin = int((bbox[0] * w) - w_half_len)
-    ymin = int((bbox[1] * h) - h_half_len)
-    xmax = int((bbox[0] * w) + w_half_len)
-    ymax = int((bbox[1] * h) + h_half_len)
-    return [xmin, ymin, xmax, ymax]
-
-
 def formatJson(path_json_yolo, path_save, set='valid'):
 
     with open(path_json_yolo, 'r') as file:
@@ -22,10 +11,6 @@ def formatJson(path_json_yolo, path_save, set='valid'):
 
     conj = {}
 
-    boxes = []
-    labels = []
-    scores = []
-
     for i, obj in enumerate(data):
 
         ids = str(obj["image_id"])
@@ -33,11 +18,12 @@ def formatJson(path_json_yolo, path_save, set='valid'):
         label = int(obj["category_id"])
         score = float(obj["score"])
         box_fill = [int(box) for box in obj["bbox"]]
-
-        box_fill = [box_fill[0],
-                    box_fill[3],
-                    box_fill[0] + box_fill[1],
-                    box_fill[3] + box_fill[2]]
+        box_fill = [
+            box_fill[0],
+            box_fill[1],
+            box_fill[0] + box_fill[2],
+            box_fill[1] + box_fill[3]
+        ]
 
         if ids not in conj.keys() and score > 0.25:
             conj[ids] = {'id': ids, "boxes": [box_fill],
@@ -53,5 +39,5 @@ def formatJson(path_json_yolo, path_save, set='valid'):
         json.dump(result, file)
 
 
-formatJson('/Users/agustincastillo/Downloads/best_predictions.json',
+formatJson('/Users/agustincastillo/Documents/Repositorios/TFM_dataset/yolov5/runs/val/exp6/yolo_predictions.json',
            'eval/runs/yolov5')

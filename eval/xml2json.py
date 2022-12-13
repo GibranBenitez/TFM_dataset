@@ -49,7 +49,7 @@ def xmls2jsonGT(path_xmls, set='VALID'):
         sizes = []
         for obj in root.findall('object'):
             label = obj.find("label").text
-            pil_bbox = [int(x.text) for x in obj.find("bndbox")]
+            pil_bbox = [int(x.text) for x in obj.find("bndbox")][:4]
             size = int(obj.find("size").text)
 
             sizes.append(size)
@@ -61,3 +61,6 @@ def xmls2jsonGT(path_xmls, set='VALID'):
 
     with open(os.path.join(path, "{}_GT_objects.json".format(set)), 'w') as file:
         json.dump(result, file)
+
+
+xmls2jsonGT('/Users/agustincastillo/Downloads/lotes/valid/Annotations')

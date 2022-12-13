@@ -1,10 +1,10 @@
-path: ../datasets/tfm
+path: /Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/tfm
 
 train:
   - images/train
 test:
   - images/test
-valid:
+val:
   - images/valid
 
 names:

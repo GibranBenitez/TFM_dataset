@@ -10,9 +10,9 @@ classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
 filename = 'YOLO_val_cm.json'
 iou_th = 0.5
 # gt_json = 'TEST_GT_objects_S.json'
-gt_json = 'VALID_GT_objects.json'
+gt_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/VALID_GT_objects.json'
 # pred_json = 'RETINA_ep30_preds_Gral.json'
-pred_json = 'YOLO_valid_Epoch_30.json'
+pred_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/YOLO_valid_Epoch_30.json'
 
 
 def main_all():
