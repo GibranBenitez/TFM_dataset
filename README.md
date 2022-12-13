@@ -118,5 +118,4 @@ Face Mask Detection Method Based on YOLOv3](https://doi.org/10.3390/electronics1
 - [Focal Loss for Dense Object Detection](https://arxiv.org/abs/1708.02002), Tsung-Yi Lin et al, CVPR.
 - [Detecting Masked Faces in the
 Wild with LLE-CNNs](https://ieeexplore.ieee.org/document/8099536), Shiming Ge, et al, CVPR 2017. 
-```
 
