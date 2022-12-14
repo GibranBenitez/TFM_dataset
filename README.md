@@ -49,7 +49,7 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 - PyTorch 1.0+
 - TorchVision
 - OpenCV
-- pip install -U scikit-learn
+- Scikit-learn
 
 ## Usage example
 We have prepared an example of the detection and recognition of the maskedfaces with our pre-entrenated models.
@@ -86,27 +86,27 @@ python main.py --model retina --source eg
 ```
 python main.py --model "choose model" --source "your directory name"
 ```
-## Usage YOLOv5 Train and Validation 
-### Preparation
-- Open the terminal in the root folder TFM_dataset and run:
-> Windows:
-```
-mkdir datasets\tfm && cd datasets\tfm && mkdir images && mkdir labels
-```
-> Linux:
-```
-mkdir -p datasets/tfm/{images,labels} 
-```
-> To MM_valid:
-
-- Once downloaded and unzipped the folder  [`MM_valid` (1GB)](https://drive.google.com/file/d/1X7tMmI_zXT89UxUdsn6xhIvmSo7j2edU/view?usp=sharing) move the folder "JPEGImages" to `./TFM_dataset/datasets/images` and rename the folder to `valid`.
-- Move the folder `Annotations` to `./TFM_dataset/datasets/labels`
-- Go to folder `./TFM_dataset/` and run:
-```
-python xml2yolo_TFM.py  
+## Usage YOLOv5 Testing and Validation 
+### Valid Set:
+- Unzip the "MM_valid.zip"
+ ```
+python main.py --data2yolo --set valid --path_annots "add the path to the Annotations directory" --path_images "add path to the JPEGImages directory"
+```   
+ - Start evaluation:
+ ```
+python main.py --eval --set valid --path_annots "add the path to the Annotations directory"
 ```
 
+### Test Set:
 
+ - Unzip the "MM_test.zip"
+ ```
+python main.py --data2yolo --set test --path_annots "add the path to the Annotations directory" --path_images "add path to the JPEGImages directory"
+```   
+ - Start evaluation:
+ ```
+python main.py --eval --set test --path_annots "add the path to the Annotations directory"
+```
 ## Citation
 If you find useful the TFM dataset for your research, please cite the paper:
 
