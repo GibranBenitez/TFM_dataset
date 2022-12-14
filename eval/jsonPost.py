@@ -2,11 +2,11 @@ import json
 import os
 
 
-def formatJson(path_json_yolo, path_save, set='valid'):
+def formatJson(dict, set='valid'):
 
-    with open(path_json_yolo, 'r') as file:
-        data = json.load(file)
-
+    # with open(path_json_yolo, 'r') as file:
+    #     data = json.load(file)
+    data = dict
     result = []
 
     conj = {}
@@ -35,9 +35,11 @@ def formatJson(path_json_yolo, path_save, set='valid'):
 
     result = list(conj.values())
 
-    with open(os.path.join(path_save, 'YOLO_{}_Epoch_30.json'.format(set)), 'w') as file:
-        json.dump(result, file)
+    # with open(os.path.join(path_save, 'YOLO_{}_Epoch_30.json'.format(set)), 'w') as file:
+    #     json.dump(result, file)
+
+    return result
 
 
-formatJson('/Users/agustincastillo/Documents/Repositorios/TFM_dataset/yolov5/runs/val/exp6/yolo_predictions.json',
-           'eval/runs/yolov5')
+# formatJson('/Users/agustincastillo/Documents/Repositorios/TFM_dataset/yolov5/runs/val/exp6/yolo_predictions.json',
+#            'eval/runs/yolov5')

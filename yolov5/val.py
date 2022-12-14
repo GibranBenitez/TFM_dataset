@@ -66,6 +66,7 @@ def save_one_json(predn, jdict, path, class_map):
             'category_id': class_map[int(p[5])],
             'bbox': [round(x, 3) for x in b],
             'score': round(p[4], 5)})
+    return jdict
 
 
 def process_batch(detections, labels, iouv):
@@ -258,7 +259,7 @@ def run(
             if save_txt:
                 save_one_txt(predn, save_conf, shape, file=save_dir / 'labels' / f'{path.stem}.txt')
             if save_json:
-                save_one_json(predn, jdict, path, class_map)  # append to COCO-JSON dictionary
+                mega_array = save_one_json(predn, jdict, path, class_map)  # append to COCO-JSON dictionary
             callbacks.run('on_val_image_end', pred, predn, path, names, im[si])
 
         # Plot images
@@ -332,6 +333,10 @@ def run(
     maps = np.zeros(nc) + map
     for i, c in enumerate(ap_class):
         maps[c] = ap[i]
+
+    if save_json:
+        return mega_array
+
     return (mp, mr, map50, map, *(loss.cpu() / len(dataloader)).tolist()), maps, t
 
 
@@ -367,6 +372,10 @@ def parse_opt():
     return opt
 
 
+def mainEvalSingle(data, weights, imgz, task):
+    return run(data=data, weights=weights, imgsz=imgz, task=task, save_json=True)
+
+
 def main(opt):
     check_requirements(exclude=('tensorboard', 'thop'))
 
@@ -400,6 +409,10 @@ def main(opt):
             plot_val_study(x=x)  # plot
         else:
             raise NotImplementedError(f'--task {opt.task} not in ("train", "val", "test", "speed", "study")')
+
+
+def runEval():
+    return mainEvalSingle()
 
 
 if __name__ == "__main__":

@@ -4,26 +4,30 @@ import torch
 import json
 import pdb
 
-# Parameters
+# # Parameters
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
-filename = 'YOLO_val_cm.json'
-iou_th = 0.5
-# gt_json = 'TEST_GT_objects_S.json'
-gt_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/VALID_GT_objects.json'
-# pred_json = 'RETINA_ep30_preds_Gral.json'
-pred_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/YOLO_valid_Epoch_30.json'
+# classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
+# filename = 'YOLO_val_cm.json'
+# iou_th = 0.5
+# # gt_json = 'TEST_GT_objects_S.json'
+# gt_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/VALID_GT_objects.json'
+# # pred_json = 'RETINA_ep30_preds_Gral.json'
+# pred_json = '/Users/agustincastillo/Documents/Repositorios/TFM_dataset/eval/runs/yolov5(1)/YOLO_valid_Epoch_30.json'
 
 
-def main_all():
+def main_all(gt, predictions, iou_th=0.5):
     # Read json files
-    with open(gt_json, "r") as file:
-        gt_ = json.load(file)
-    with open(pred_json, "r") as file:
-        pd_all = json.load(file)
+    # with open(gt_json, "r") as file:
+    #     gt_ = json.load(file)
+    # with open(pred_json, "r") as file:
+    #     pd_all = json.load(file)
 
-    print(gt_json)
-    print(pred_json)
+    # print(gt_json)
+    # print(pred_json)
+    classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
+
+    gt_ = gt
+    pd_all = predictions
 
     gt_ids = [d['id'] for d in gt_]
     pd_ids = [d['id'] for d in pd_all]
@@ -94,14 +98,14 @@ def main_all():
     print(cm)
     print(classes)
 
-    # 3. Write json file
-    try:
-        with open(filename, "w") as file:
-            json.dump(datos, file)
-    except:
-        print('ERROR @ saving json file')
-        pdb.set_trace()
-    print('\n... {} saved'.format(filename))
+    # # 3. Write json file
+    # try:
+    #     with open(filename, "w") as file:
+    #         json.dump(datos, file)
+    # except:
+    #     print('ERROR @ saving json file')
+    #     pdb.set_trace()
+    # print('\n... {} saved'.format(filename))
 
 
 def bbox_iou(box1, box2, x1y1x2y2=True):

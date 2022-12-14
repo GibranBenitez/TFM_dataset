@@ -2,6 +2,8 @@ import xml.etree.ElementTree as ET
 import glob
 import json
 import os
+import shutil
+from pathlib import Path
 
 
 def xml_to_yolo_bbox(bbox, w, h):
@@ -24,14 +26,46 @@ def yolo_to_xml_bbox(bbox, w, h):
     return [xmin, ymin, xmax, ymax]
 
 
-if __name__ == '__main__':
+def data2yolov5(set: str, path_annot: str, path_images):
 
-    folders_db = ['valid', 'test']
+    if not os.path.exists('./datasets/tfm'):
+        os.makedirs('./datasets', exist_ok=True)
+
+        if not os.path.exists('./datasets/tfm/images'):
+            os.makedirs('./datasets', exist_ok=True)
+
+        if not os.path.exists('./datasets/tfm/labels'):
+            os.makedirs('./datasets', exist_ok=True)
+
+        dirs = ['./datasets/tfm/images', './datasets/tfm/labels']
+
+        for dir in dirs:
+            for subset in ['train', 'test', 'valid']:
+                os.makedirs(os.path.join(dir, subset), exist_ok=True)
+
+    moveImages(set, path_images)
+    creaTxt(set, path_annot)
+
+
+def moveImages(set: str, path_images: str):
+
+    listImages = glob.glob(os.path.join(path_images, '*'))
+
+    for image in listImages:
+
+        src = r'{}'.format(image)
+        dest = r'./datasets/tfm/images/' + set + '/' + str(Path(image).name)
+
+        shutil.copy2(src, dest)
+
+
+def creaTxt(set: str, path_annot: str):
+
+    folders_db = [set]
     for folder in folders_db:
         classes = ['cloth', 'none', 'respirator', 'surgical', 'valve']
-        input_dir = "/Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/{}/Annotations/".format(
-            folder)
-        output_dir = "/Users/agustincastillo/Documents/Repositorios/TFM_dataset/datasets/tfm/{}/annotations/".format(
+        input_dir = path_annot
+        output_dir = "./datasets/tfm/labels/{}/".format(
             folder)
 
         # create the labels folder (output directory)

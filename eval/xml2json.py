@@ -20,22 +20,22 @@ def checkdir(filePath):
 
 def xmls2jsonGT(path_xmls, set='VALID'):
     # create the labels folder (output directory)
-    if not os.path.exists('./eval'):
-        os.makedirs('./eval')
+    # if not os.path.exists('./eval'):
+    #     os.makedirs('./eval')
 
-    if not os.path.exists('./eval/runs'):
-        os.makedirs('./eval/runs')
+    # if not os.path.exists('./eval/runs'):
+    #     os.makedirs('./eval/runs')
 
-    path = './eval/runs/yolov5'
-    path = checkdir(path)
-    os.makedirs(path, exist_ok=True)
+    # path = './eval/runs/yolov5'
+    # path = checkdir(path)
+    # os.makedirs(path, exist_ok=True)
 
     # identify all the xml files in the annotations folder (input directory)
     files = glob(os.path.join(path_xmls, '*.xml'))
 
     result = []
 
-    print("Generating JSON annots GT for {} files in {} folder".format(len(files), path))
+    print("Generating JSON annots GT for {} files".format(len(files)))
     # loop through each
     for fil in files:
         basename = os.path.basename(fil)
@@ -59,8 +59,9 @@ def xmls2jsonGT(path_xmls, set='VALID'):
         result.append({'id': filename, 'boxes': boxes,
                       'labels': labels, 'sizes': sizes})
 
-    with open(os.path.join(path, "{}_GT_objects.json".format(set)), 'w') as file:
-        json.dump(result, file)
+    # with open(os.path.join(path, "{}_GT_objects.json".format(set)), 'w') as file:
+    #     json.dump(result, file)
+    return result
 
 
-xmls2jsonGT('/Users/agustincastillo/Downloads/lotes/valid/Annotations')
+# xmls2jsonGT('/Users/agustincastillo/Downloads/lotes/valid/Annotations')

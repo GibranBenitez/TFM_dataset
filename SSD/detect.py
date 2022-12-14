@@ -5,22 +5,22 @@ from glob import glob
 import torch
 #from . import model
 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# Load model checkpoint
-checkpoint = 'checkpoints\ssd.pth'
-checkpoint = torch.load(checkpoint,map_location=device)
-start_epoch = checkpoint['epoch'] + 1
-print('\nLoaded checkpoint from epoch %d.\n' % start_epoch)
-model = checkpoint['model']
-model = model.to(device)
-model.eval()
+# # Load model checkpoint
+# checkpoint = 'checkpoints\ssd.pth'
+# checkpoint = torch.load(checkpoint,map_location=device)
+# start_epoch = checkpoint['epoch'] + 1
+# print('\nLoaded checkpoint from epoch %d.\n' % start_epoch)
+# model = checkpoint['model']
+# model = model.to(device)
+# model.eval()
 
-# Transforms
-resize = transforms.Resize((300, 300))
-to_tensor = transforms.ToTensor()
-normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                 std=[0.229, 0.224, 0.225])
+# # Transforms
+# resize = transforms.Resize((300, 300))
+# to_tensor = transforms.ToTensor()
+# normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
+#                                  std=[0.229, 0.224, 0.225])
 
 
 def detect(original_image, min_score, max_overlap, top_k, suppress=None):
@@ -97,16 +97,17 @@ def detect(original_image, min_score, max_overlap, top_k, suppress=None):
 
     return annotated_image
 
-def runssd(path,to_path):
+
+def runssd(path, to_path):
     images = glob(str(path) + '/*')
-    #print(images)
+    # print(images)
     for image in images:
-        split_img=image.split('\\')
-        #print(split_img[1])
+        split_img = image.split('\\')
+        # print(split_img[1])
         original_image = Image.open(image, mode='r')
         original_image = original_image.convert('RGB')
-        detect(original_image, min_score=0.6, max_overlap=0.5, top_k=200).save(to_path+ "/" + split_img[1])
-        
+        detect(original_image, min_score=0.6, max_overlap=0.5,
+               top_k=200).save(to_path + "/" + split_img[1])
 
 
 if __name__ == '__main__':
