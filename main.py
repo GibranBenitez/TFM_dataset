@@ -55,7 +55,7 @@ if __name__ == '__main__':
     # 'set' argument
     # 'path_annots'
 
-    parser.add_argument('--val')
+    
 
     args = parser.parse_args()
 
