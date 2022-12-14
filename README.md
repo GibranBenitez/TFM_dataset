@@ -68,23 +68,23 @@ cd TFM_dataset && mkdir checkpoints
 ### Run
 - **Yolov5:**
 ```
-python main.py --model yolov5 --source eg
+python main.py --detect --model yolov5 --source eg
 ```
 - **SSD:**
 ```
-python main.py --model ssd --source eg
+python main.py --detect --model ssd --source eg
 ```
 - **FCOS:**
 ```
-python main.py --model fcos --source eg
+python main.py --detect --model fcos --source eg
 ```
 - **RetinaNet:**
 ```
-python main.py --model retina --source eg
+python main.py --detect --model retina --source eg
 ```
 - To add your own images you must create the directory in the root and choose it in the source:
 ```
-python main.py --model "choose model" --source "your directory name"
+python main.py --detect --model "choose model" --source "your directory name"
 ```
 ## Usage YOLOv5 Testing and Validation 
 ### Valid Set:
