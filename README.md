@@ -38,10 +38,9 @@ We divide the entire data set into training (with pictures that only include up 
  Test | 2,361 | 6,604 | 9,333 | 6,846 | 802  | 25,946
  
  ## Download TFM dataset from:
-  - [MM_train1.zip (5.4 GB)](https://drive.google.com/file/d/1XFv41kuujoG3uKfeZ3CsIM7ZCjJ0QXO0/view?usp=sharing)
-  - [MM_train2.zip (5.03GB)](https://drive.google.com/file/d/1XZeNA9M1b-6bbIzd3XXmsQ9VF9ziGtMT/view?usp=sharing)
-  - [MM_valid.zip (1GB)](https://drive.google.com/file/d/1X7tMmI_zXT89UxUdsn6xhIvmSo7j2edU/view?usp=sharing)
-  - [MM_test.zip (1.26 GB)](https://drive.google.com/file/d/1XBB760jFFbhlYFILXXER-JgGaBDKcSMQ/view?usp=share_link)
+ 
+ #### Instructions to download the complete TFM dataset directly from Twitter will be available SOON.
+  
  ## Benchmark evaluation
  In general, all methods present the expected trend when evaluating faces of specific dimensions. Medium (mAP<sub>𝑀</sub>) and large (mAP<sub>𝐿</sub>) faces achieved higher performance than the general mAP, while small (mAP<sub>𝑆</sub>) shows a significant accuracy drop.
  <br>You can download the pre-trained models from the table below:
