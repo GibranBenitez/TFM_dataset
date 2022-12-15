@@ -1,8 +1,18 @@
-# TFM_dataset 
+# TFM Dataset 
 
-[__TFM a Dataset for Detection and Recognition of Masked Faces in the Wild__](https://dl.acm.org/doi/10.1145/3551626.3564957)<br>
+This repository is an official implementation of the paper:
+
+[_TFM a Dataset for Detection and Recognition of Masked Faces in the Wild_](https://dl.acm.org/doi/10.1145/3551626.3564957)<br>
 [Gibran Benitez-Garcia](https://gibranbenitez.github.io), Miguel Jimenez-Martinez, Jesus Olivares-Mercado and Hiroki Takahashi<br>
-___Accepted at [ACM Multimedia Asia 2022](https://www.mmasia2022.org)___
+**Presented at** _[ACM Multimedia Asia 2022](https://www.mmasia2022.org)_
+
+## Updates
+- `[2022-12-15]:` Download links of zipped images have been disabled due to copyright issues. Links to download the original images from Twitter will be shared soon. 
+
+## Coming soon
+- [ ] Share a small batch of public images where anyone can test our pretrained models.
+- [ ] Instructions to download the complete TFM dataset from Twitter
+## Introduction
 
 In this paper we introduced a **TFM dataset** with sufficient size and variety to train and evaluate deep learning models
 for face mask detection and recognition. This dataset contains **107, 598** images with **135, 958** maskedfaces in the wild mined from
@@ -12,7 +22,7 @@ in background and illumination.
 of **mAP@0.5**, demonstrating that the TFM dataset can be used to train robust models and may help the community step forward in
 detecting and recognizing masked faces in the wild.
 
-### Dataset details
+## Dataset details
 After the annotation process, we remove duplicates and images with explicit content, thus,  we have:
 
 Unmasked |  Surgical	| Cloth	| Respirator| Valved 
@@ -27,12 +37,12 @@ We divide the entire data set into training (with pictures that only include up 
  Valid | 1,869 | 1,915 | 7,041 | 3,514 | 399 | 14,738
  Test | 2,361 | 6,604 | 9,333 | 6,846 | 802  | 25,946
  
- ### Download TFM dataset from:
+ ## Download TFM dataset from:
   - [MM_train1.zip (5.4 GB)](https://drive.google.com/file/d/1XFv41kuujoG3uKfeZ3CsIM7ZCjJ0QXO0/view?usp=sharing)
   - [MM_train2.zip (5.03GB)](https://drive.google.com/file/d/1XZeNA9M1b-6bbIzd3XXmsQ9VF9ziGtMT/view?usp=sharing)
   - [MM_valid.zip (1GB)](https://drive.google.com/file/d/1X7tMmI_zXT89UxUdsn6xhIvmSo7j2edU/view?usp=sharing)
   - [MM_test.zip (1.26 GB)](https://drive.google.com/file/d/1XBB760jFFbhlYFILXXER-JgGaBDKcSMQ/view?usp=share_link)
- ### Benchmark evaluation
+ ## Benchmark evaluation
  In general, all methods present the expected trend when evaluating faces of specific dimensions. Medium (mAP<sub>𝑀</sub>) and large (mAP<sub>𝐿</sub>) faces achieved higher performance than the general mAP, while small (mAP<sub>𝑆</sub>) shows a significant accuracy drop.
  <br>You can download the pre-trained models from the table below:
  
@@ -43,7 +53,7 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 [RetinaNet](https://drive.google.com/file/d/1DJtsLel7qrkKzpKmf8O4Td2HN9dBSMZw/view?usp=share_link) | 87.1 |  86.9	| 71.3	| 91.7 | 92.8 |  
 [YOLOv5](https://drive.google.com/file/d/1uAZioqd4Pvurl7eEiDawidve8FU0dFXA/view?usp=share_link) | **89.6** |  **89.6**	| **82.2**	| **92.9** | **93.0** |  
 
-### Requeriments
+## Requeriments
 
 - Python 3.8+
 - PyTorch 1.0+
@@ -52,7 +62,7 @@ Method | Valid mAP |  mAP	| mAP<sub>S</sub>	| mAP<sub>M</sub>| mAP<sub>L</sub>
 - Scikit-learn
 
 ## Usage example
-We have prepared an example of the detection and recognition of the maskedfaces with our pre-entrenated models.
+We have prepared an example of detection and recognition of masked faces with our pretrained models.
 
 ### Preparation
 - Clone this repository
