@@ -2,9 +2,9 @@
 
 This repository is an official implementation of the paper:
 
-[_TFM a Dataset for Detection and Recognition of Masked Faces in the Wild_](https://dl.acm.org/doi/10.1145/3551626.3564957)<br>
+[_**TFM a Dataset for Detection and Recognition of Masked Faces in the Wild**_](https://dl.acm.org/doi/10.1145/3551626.3564957)<br>
 [Gibran Benitez-Garcia](https://gibranbenitez.github.io), Miguel Jimenez-Martinez, Jesus Olivares-Mercado and Hiroki Takahashi<br>
-**Presented at** _[ACM Multimedia Asia 2022](https://www.mmasia2022.org)_
+**Presented at** _**[ACM Multimedia Asia 2022](https://www.mmasia2022.org)**_
 
 ## Updates
 - `[2022-12-15]:` Download links of zipped images have been disabled due to copyright issues. Links to download the original images from Twitter will be shared soon. 
