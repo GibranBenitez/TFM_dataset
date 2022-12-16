@@ -10,7 +10,7 @@ This repository is an official implementation of the paper:
 - `[2022-12-15]:` Download links of zipped images have been disabled due to copyright issues. Links to download the original images from Twitter will be shared soon. 
 
 ## Coming soon
-- [ ] Share a small batch of public images where anyone can test our pretrained models.
+- [X] Share a small batch of public images where anyone can test our pretrained models.
 - [ ] Instructions to download the complete TFM dataset from Twitter
 ## Introduction
 
@@ -73,12 +73,12 @@ git clone https://github.com/GibranBenitez/TFM_dataset.git
 cd TFM_dataset && mkdir checkpoints
 ```
 - Store all pretrained models in `./TFM_dataset/checkpoints`
-- Choose the model and source directory.
 ### Mini-batch download for testing
 We have prepared a minibatch with images downloaded from internet.
 - Dowload the [MM_minibatch](https://drive.google.com/file/d/1bZrOjHg2vOQPzliB2qftARLDfNYNUPlB/view?usp=share_link)
 - Unzip and move the MM_minibatch to `./TFM_dataset`
 ### Run
+ Choose the model and source directory.
 - **Yolov5:**
 ```
 python main.py --detect --model yolov5 --source MM_minibatch
