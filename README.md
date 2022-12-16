@@ -74,22 +74,26 @@ cd TFM_dataset && mkdir checkpoints
 ```
 - Store all pretrained models in `./TFM_dataset/checkpoints`
 - Choose the model and source directory.
+### Mini-batch download for testing
+We have prepared a minibatch with images downloaded from internet.
+- Dowload the [MM_minibatch](https://drive.google.com/file/d/1bZrOjHg2vOQPzliB2qftARLDfNYNUPlB/view?usp=share_link)
+- Unzip and move the MM_minibatch to `./TFM_dataset`
 ### Run
 - **Yolov5:**
 ```
-python main.py --detect --model yolov5 --source eg
+python main.py --detect --model yolov5 --source MM_minibatch
 ```
 - **SSD:**
 ```
-python main.py --detect --model ssd --source eg
+python main.py --detect --model ssd --source MM_minibatch
 ```
 - **FCOS:**
 ```
-python main.py --detect --model fcos --source eg
+python main.py --detect --model fcos --source MM_minibatch
 ```
 - **RetinaNet:**
 ```
-python main.py --detect --model retina --source eg
+python main.py --detect --model retina --source MM_minibatch
 ```
 - To add your own images you must create the directory in the root and choose it in the source:
 ```
